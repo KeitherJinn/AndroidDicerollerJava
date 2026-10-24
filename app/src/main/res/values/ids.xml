@@ -1,0 +1,5 @@
+<resources>
+    <item name="notation_input" type="id" />
+    <item name="times_input" type="id" />
+    <item name="name_input" type="id" />
+</resources>

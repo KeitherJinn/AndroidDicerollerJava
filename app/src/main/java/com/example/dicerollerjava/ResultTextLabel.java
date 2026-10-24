@@ -1,0 +1,6 @@
+package com.example.dicerollerjava;
+
+public enum ResultTextLabel {
+    BATCH, EXPRESSION, MODE, NOTE, TIME, COUNT, TOTAL, AVERAGE, MINIMUM, MAXIMUM,
+    ROLL, FIRST_GROUP, SECOND_GROUP, CHOSEN_TOTAL, MODIFIER, RESULT, NORMAL, HIGHER, LOWER
+}

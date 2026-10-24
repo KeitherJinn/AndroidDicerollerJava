@@ -1,0 +1,50 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace = 'com.example.dicerollerjava'
+    compileSdk = 37
+    defaultConfig {
+        applicationId = 'com.example.dicerollerjava'
+        minSdk = 34
+        targetSdk = 37
+        versionCode = 2
+        versionName = '1.0.1'
+        testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        qa {
+            initWith debug
+            applicationIdSuffix = '.uitest'
+            matchingFallbacks = ['debug']
+        }
+        release { optimization { enable = false } }
+    }
+    testBuildType = 'qa'
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    lint {
+        checkTestSources = true
+        ignoreTestSources = false
+        checkDependencies = true
+        abortOnError = true
+        ignoreWarnings = false
+    }
+}
+
+dependencies {
+    // Align transitive AndroidX modules to compatible versions already available offline.
+    implementation 'androidx.activity:activity:1.13.0'
+    implementation 'androidx.core:core:1.19.1'
+    implementation 'androidx.core:core-ktx:1.19.1'
+    implementation 'androidx.collection:collection:1.5.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.11.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.11.0'
+    // Lifecycle's annotation dependency is aligned to the version already used by this SDK setup.
+    implementation 'androidx.compose.runtime:runtime-annotation:1.12.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+}
